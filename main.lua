@@ -1,3 +1,5 @@
+-- Released under MIT License
+-- Created by Jaya Polumuru
 
 ----------------------------------------------------------------------------------------
 -- Split Information
@@ -48,7 +50,6 @@ end
 
 local function main()
 	
-	require("xml_parser")
 	
 	local pathCurve = { {x=155.45091 , y=121.75114 } ,
 		{x=132.99905 , y=118.63369 } ,
@@ -90,14 +91,14 @@ local function main()
 end
 
 function extractPath(params)
+	require("xml_parser")
+
 	local xml = XmlParser:ParseXmlFile(params.file);
 	local pathd = '';
 	local pathArray = {};
 
 	if (xml['ChildNodes']) then
 		for k1,v1 in pairs(xml['ChildNodes']) do 
-			-- print("*" .. k1 .. "*")
-
 			for k2,v2 in pairs(v1['ChildNodes']) do
 				if (v2['Name'] and v2['Name'] == 'path') then
 

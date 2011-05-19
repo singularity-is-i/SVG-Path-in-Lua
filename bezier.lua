@@ -1,3 +1,8 @@
+-- Modified Version of bezier module
+-- Credit to carlos m. icaza
+-- Released under MIT License
+-- Modified by Jaya Polumuru
+
 module(..., package.seeall)
 
 
