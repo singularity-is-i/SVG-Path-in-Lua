@@ -161,15 +161,18 @@ function extractPointsFromPath(params)
 			src = mpts[k];
 		end
 	end
-	
+		
 	-- Adding the points for curve, Making relative points constant
+	local count = 0
 	for k,v in pairs(cpts) do 
 	 	if (src) then
 			-- src = v;
-			
+			count = count+1
 			cpts[k] = {x=src.x+v.x,y=src.y+v.y};
 			table.insert(finalPts, cpts[k]);
-			src = cpts[k];
+			if (count % 3 == 0) then
+				src = cpts[k];
+			end
 		end
 	end
 	
